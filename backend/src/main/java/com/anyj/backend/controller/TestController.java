@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @PostMapping("/get")
-    public String test() {
-        System.out.println("teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-        return "test";
+    public String test(String s) {
+        System.out.println("teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + "  "  +s);
+        return s;
     }
 }

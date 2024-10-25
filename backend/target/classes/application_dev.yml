@@ -4,4 +4,6 @@ spring:
     url:
     username:
     password:
+server:
+  port:
 

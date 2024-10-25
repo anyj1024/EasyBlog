@@ -4,7 +4,7 @@
     <el-header class="header">
       <div class="logo">EasyBlog</div>
       <el-menu mode="horizontal" default-active="1" class="nav-menu">
-        <el-menu-item index="1">首页</el-menu-item>
+        <el-menu-item index="1" @click="testData">首页</el-menu-item>
         <el-menu-item index="2">分类</el-menu-item>
         <el-menu-item index="3">标签</el-menu-item>
         <el-menu-item index="4">归档</el-menu-item>
@@ -21,14 +21,21 @@
       </el-carousel-item>
     </el-carousel>
   </div>
+
+  <div class="home-data">
+    <p>{{ homeData }}</p>
+  </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'App',
   data() {
     return {
       carouselItems: [],
+      homeData: '',
     };
   },
   created() {
@@ -40,6 +47,17 @@ export default {
       const imagesContext = require.context('@/assets/images', false, /\.png$/);
       this.carouselItems = imagesContext.keys().map(imagesContext);
     },
+    async testData() {
+      try {
+        const params = new URLSearchParams();
+        params.append('s', 'Hello World!');
+        const response = await axios.post('http://1.94.98.78:8089/test/get', params);  // 调用后端接口
+        console.log('接口返回的数据是： ', response.data);
+        this.homeData = response.data;
+      } catch (error) {
+        console.error('Error fetching home data:', error);
+      }
+    }
   },
 };
 </script>
