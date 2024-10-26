@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.anyj.backend.dto"/>
+    </typeAliases>
+
+    <!-- 使用自动扫描的方式，假设接口包和 XML 文件位置一致 -->
+    <mappers>
+        <package name="com.anyj.backend.mapper"/>
+    </mappers>
+</configuration>

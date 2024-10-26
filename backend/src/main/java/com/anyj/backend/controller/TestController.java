@@ -12,7 +12,7 @@ public class TestController {
 
     @PostMapping("/get")
     public String test(String s) {
-        System.out.println("teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + "  "  +s);
+        System.out.println(System.currentTimeMillis() + "   teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + "  "  +s);
         return s;
     }
 }
